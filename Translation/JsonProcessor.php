@@ -23,7 +23,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException;
  *
  * @version 0.1
  */
-class JsonProcessor implements FileProcessor
+class JsonProcessor extends AbstractProcessor implements FileProcessor
 {
     /**
      * @var string
@@ -31,86 +31,30 @@ class JsonProcessor implements FileProcessor
     protected $baseDirectory;
 
     /**
-     * @var array
+     * JsonProcessor constructor.
+     *
+     * @param $baseDirectory
      */
-    protected static $translations;
-
-    /**
-     * Get a translation value.
-     * If the default value is null and no translation is found, it throws Exception.
-     *
-     * @param string $key
-     * @param string $locale
-     * @param string $package
-     * @param mixed  $default
-     *
-     * @return mixed
-     *
-     * @throws Exception
-     */
-    public function get($key, $locale, $package = 'default', $default = null)
+    public function __construct($baseDirectory)
     {
-        // Check key
-        if (empty($key)) {
-            return $default;
-        }
-
-        // Normalize group and load translations
-        $package = ($package ?: 'default');
-        try {
-            $this->loadTranslations($locale, $package);
-
-            // Return translation
-            $array = (static::$translations[$locale] ?: []);
-
-            $value = ArrayHelper::get($array, $key, $default, true);
-        } catch (Exception $ex) {
-            $value = $default;
-        }
-
-        return $value;
+        $this->baseDirectory = $baseDirectory;
     }
 
     /**
-     * Set the base literals directory.
+     * Get the base directory for the literals
      *
-     * @param string $directory
-     *
-     * @return $this
+     * @return string
      */
-    public function setBaseDirectory($directory)
+    public function getBaseDirectory()
     {
-        $this->baseDirectory = $directory;
-
-        return $this;
+        return $this->baseDirectory;
     }
 
     /**
-     * Load translations from file.
-     *
-     * @param string $locale
-     * @param string $package
-     *
-     * @return $this
-     *
-     * @throws FileNotFoundException
+     * @param string $baseDirectory
      */
-    private function loadTranslations($locale, $package)
+    public function setBaseDirectory(string $baseDirectory)
     {
-        if (empty(static::$translations[$locale])) {
-            // Get full file path
-            $fileName = $locale . DIRECTORY_SEPARATOR . $package . '.json';
-            $filePath = $this->baseDirectory . DIRECTORY_SEPARATOR . $fileName;
-
-            // Check if is valid and load translations
-            if (is_file($filePath)) {
-                $fileContents = file_get_contents($filePath);
-                static::$translations[$locale] = json_decode($fileContents, true);
-            } else {
-                throw new FileNotFoundException($fileName);
-            }
-        }
-
-        return $this;
+        $this->baseDirectory = $baseDirectory;
     }
 }
