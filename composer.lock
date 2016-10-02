@@ -9,16 +9,16 @@
     "packages": [
         {
             "name": "panda/contracts",
-            "version": "v1.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PandaPlatform/panda-contracts.git",
-                "reference": "52f368a117067151a0ebfae2cca596f5067517be"
+                "reference": "110139a7d690221c4a23e38d731804d57db55a6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PandaPlatform/panda-contracts/zipball/52f368a117067151a0ebfae2cca596f5067517be",
-                "reference": "52f368a117067151a0ebfae2cca596f5067517be",
+                "url": "https://api.github.com/repos/PandaPlatform/panda-contracts/zipball/110139a7d690221c4a23e38d731804d57db55a6a",
+                "reference": "110139a7d690221c4a23e38d731804d57db55a6a",
                 "shasum": ""
             },
             "require": {
@@ -50,20 +50,20 @@
                 "Panda",
                 "framework"
             ],
-            "time": "2016-10-01 21:56:09"
+            "time": "2016-10-02 09:18:40"
         },
         {
             "name": "panda/helpers",
-            "version": "v1.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PandaPlatform/panda-helpers.git",
-                "reference": "46988bd4a224ec6466ceefeb635a1184dc5a3150"
+                "reference": "7dcca5de01dcff218c7543b2f7fdc7b4f3f0f894"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PandaPlatform/panda-helpers/zipball/46988bd4a224ec6466ceefeb635a1184dc5a3150",
-                "reference": "46988bd4a224ec6466ceefeb635a1184dc5a3150",
+                "url": "https://api.github.com/repos/PandaPlatform/panda-helpers/zipball/7dcca5de01dcff218c7543b2f7fdc7b4f3f0f894",
+                "reference": "7dcca5de01dcff218c7543b2f7fdc7b4f3f0f894",
                 "shasum": ""
             },
             "require": {
@@ -90,7 +90,7 @@
             ],
             "description": "The Panda PHP Framework Helpers component.",
             "homepage": "http://pandaphp.org",
-            "time": "2016-10-01 22:17:07"
+            "time": "2016-10-02 10:32:58"
         },
         {
             "name": "symfony/http-foundation",
