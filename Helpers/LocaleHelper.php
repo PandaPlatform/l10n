@@ -15,10 +15,7 @@ use InvalidArgumentException;
 
 /**
  * Class LocaleHelper
- *
  * @package Panda\Localization\Helpers
- *
- * @version 0.1
  */
 class LocaleHelper
 {

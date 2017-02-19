@@ -15,10 +15,7 @@ use Panda\Contracts\Localization\FileProcessor;
 
 /**
  * Class JsonProcessor
- *
  * @package Panda\Localization\Translation
- *
- * @version 0.1
  */
 class JsonProcessor extends AbstractProcessor implements FileProcessor
 {

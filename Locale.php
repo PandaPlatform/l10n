@@ -13,10 +13,7 @@ namespace Panda\Localization;
 
 /**
  * Class Locale
- *
  * @package Panda\Localization
- *
- * @version 0.1
  */
 class Locale
 {

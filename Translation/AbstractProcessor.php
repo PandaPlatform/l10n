@@ -18,10 +18,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException;
 
 /**
  * Class AbstractProcessor
- *
  * @package Panda\Localization\Translation
- *
- * @version 0.1
  */
 abstract class AbstractProcessor implements FileProcessor
 {

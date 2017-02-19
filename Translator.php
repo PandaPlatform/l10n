@@ -16,11 +16,8 @@ use Panda\Contracts\Localization\FileProcessor;
 use Panda\Localization\Helpers\LocaleHelper;
 
 /**
- * Class Locale
- *
+ * Class Translator
  * @package Panda\Localization
- *
- * @version 0.1
  */
 class Translator
 {
@@ -56,8 +53,9 @@ class Translator
     public function translate($key, $package = 'default', $locale = '', $default = null)
     {
         // Normalize locale to current if the given is empty
-        $locale = ($locale ?: Locale::get());
         $defaultLocale = Locale::getDefault();
+        $locale = $locale ?: Locale::get();
+        $locale = $locale ?: $defaultLocale;
 
         // Get locale fallback
         $translation = null;

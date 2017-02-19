@@ -16,9 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class GeoIp
- *
  * @package Panda\Localization
- * @version 0.1
  */
 class GeoIp
 {
