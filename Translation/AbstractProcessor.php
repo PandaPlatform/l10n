@@ -35,6 +35,16 @@ abstract class AbstractProcessor implements FileProcessor
     abstract public function getBaseDirectory();
 
     /**
+     * Load translations
+     *
+     * @param string $locale
+     * @param string $package
+     *
+     * @throws FileNotFoundException
+     */
+    abstract public function loadTranslations($locale, $package = 'default');
+
+    /**
      * Get a translation value.
      * If the default value is null and no translation is found, it throws Exception.
      *
@@ -44,8 +54,7 @@ abstract class AbstractProcessor implements FileProcessor
      * @param mixed  $default
      *
      * @return mixed
-     *
-     * @throws Exception
+     * @throws FileNotFoundException
      */
     public function get($key, $locale, $package = 'default', $default = null)
     {
@@ -68,34 +77,5 @@ abstract class AbstractProcessor implements FileProcessor
         }
 
         return $value;
-    }
-
-    /**
-     * Load translations from file.
-     *
-     * @param string $locale
-     * @param string $package
-     *
-     * @return $this
-     *
-     * @throws FileNotFoundException
-     */
-    private function loadTranslations($locale, $package)
-    {
-        if (empty(static::$translations[$locale])) {
-            // Get full file path
-            $fileName = $locale . DIRECTORY_SEPARATOR . $package . '.json';
-            $filePath = $this->getBaseDirectory() . DIRECTORY_SEPARATOR . $fileName;
-
-            // Check if is valid and load translations
-            if (is_file($filePath)) {
-                $fileContents = file_get_contents($filePath);
-                static::$translations[$locale] = json_decode($fileContents, true);
-            } else {
-                throw new FileNotFoundException($fileName);
-            }
-        }
-
-        return $this;
     }
 }

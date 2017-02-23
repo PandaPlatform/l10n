@@ -12,6 +12,7 @@
 namespace Panda\Localization\Translation;
 
 use Panda\Contracts\Localization\FileProcessor;
+use Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException;
 
 /**
  * Class JsonProcessor
@@ -50,5 +51,31 @@ class JsonProcessor extends AbstractProcessor implements FileProcessor
     public function setBaseDirectory(string $baseDirectory)
     {
         $this->baseDirectory = $baseDirectory;
+    }
+
+    /**
+     * Load translations from file.
+     *
+     * @param string $locale
+     * @param string $package
+     *
+     * @throws FileNotFoundException
+     */
+    public function loadTranslations($locale, $package = 'default')
+    {
+        $package = $package ?: 'default';
+        if (empty(static::$translations[$locale])) {
+            // Get full file path
+            $fileName = $locale . DIRECTORY_SEPARATOR . $package . '.json';
+            $filePath = $this->getBaseDirectory() . DIRECTORY_SEPARATOR . $fileName;
+
+            // Check if is valid and load translations
+            if (is_file($filePath)) {
+                $fileContents = file_get_contents($filePath);
+                static::$translations[$locale] = json_decode($fileContents, true);
+            } else {
+                throw new FileNotFoundException($fileName);
+            }
+        }
     }
 }
