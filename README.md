@@ -1,12 +1,12 @@
-# Panda Localization Component
+# Panda Localization Package
 
-This is the localization component of the Panda Platform. It provides a simple translation structure and process for your code.
+This is the localization package of the Panda Platform. It provides a simple translation structure and process for your code.
 
 [![StyleCI](https://styleci.io/repos/69765487/shield?branch=master)](https://styleci.io/repos/69765487)
 
 ## Installation
 
-This component is part of the [Panda Framework](https://github.com/PandaPlatform/panda-framework) but it's also available as a single package.
+This package is part of the [Panda Framework](https://github.com/PandaPlatform/panda-framework) but it's also available as a single package.
 
 ### Through the composer
 
