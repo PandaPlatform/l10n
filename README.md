@@ -2,6 +2,8 @@
 
 This is the localization component of the Panda Platform. It provides a simple translation structure and process for your code.
 
+[![StyleCI](https://styleci.io/repos/69765487/shield?branch=master)](https://styleci.io/repos/69765487)
+
 ## Installation
 
 This component is part of the [Panda Framework](https://github.com/PandaPlatform/panda-framework) but it's also available as a single package.
@@ -27,10 +29,9 @@ The Translator interface can be used across the entire application. You have to 
 Example:
 
 ```php
-<?php
 
-use \Panda\Localization\Translator;
 use Panda\Localization\Translation\JsonProcessor;
+use Panda\Localization\Translator;
 
 // Initialize the desired processor
 $processor = new JsonProcessor('your_base_directory_for_translations');
