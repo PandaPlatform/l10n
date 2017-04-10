@@ -21,39 +21,6 @@ use Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException;
 class JsonProcessor extends AbstractProcessor implements FileProcessor
 {
     /**
-     * @var string
-     */
-    protected $baseDirectory;
-
-    /**
-     * JsonProcessor constructor.
-     *
-     * @param $baseDirectory
-     */
-    public function __construct($baseDirectory)
-    {
-        $this->baseDirectory = $baseDirectory;
-    }
-
-    /**
-     * Get the base directory for the literals
-     *
-     * @return string
-     */
-    public function getBaseDirectory()
-    {
-        return $this->baseDirectory;
-    }
-
-    /**
-     * @param string $baseDirectory
-     */
-    public function setBaseDirectory(string $baseDirectory)
-    {
-        $this->baseDirectory = $baseDirectory;
-    }
-
-    /**
      * Load translations from file.
      *
      * @param string $locale

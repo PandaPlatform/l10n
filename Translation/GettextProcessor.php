@@ -21,41 +21,18 @@ use Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException;
 class GettextProcessor extends AbstractProcessor implements FileProcessor
 {
     /**
-     * @var string
-     */
-    protected $baseDirectory;
-
-    /**
-     * JsonProcessor constructor.
+     * Get a translation value.
      *
-     * @param $baseDirectory
-     */
-    public function __construct($baseDirectory)
-    {
-        $this->baseDirectory = $baseDirectory;
-    }
-
-    /**
-     * Get the base directory for the literals
+     * @param string $key
+     * @param string $locale
+     * @param string $package
+     * @param mixed  $default
      *
-     * @return string
+     * @return mixed
      */
-    public function getBaseDirectory()
-    {
-        return $this->baseDirectory;
-    }
-
-    /**
-     * @param string $baseDirectory
-     */
-    public function setBaseDirectory(string $baseDirectory)
-    {
-        $this->baseDirectory = $baseDirectory;
-    }
-
     public function get($key, $locale, $package = 'default', $default = null)
     {
-        // TODO: Implement get() method.
+        return gettext($key);
     }
 
     /**

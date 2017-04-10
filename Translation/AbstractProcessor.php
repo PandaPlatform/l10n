@@ -28,11 +28,9 @@ abstract class AbstractProcessor implements FileProcessor
     protected static $translations;
 
     /**
-     * Get the base directory for the literals
-     *
-     * @return string
+     * @var string
      */
-    abstract public function getBaseDirectory();
+    protected $baseDirectory;
 
     /**
      * Load translations
@@ -43,6 +41,16 @@ abstract class AbstractProcessor implements FileProcessor
      * @throws FileNotFoundException
      */
     abstract public function loadTranslations($locale, $package = 'default');
+
+    /**
+     * JsonProcessor constructor.
+     *
+     * @param $baseDirectory
+     */
+    public function __construct($baseDirectory)
+    {
+        $this->baseDirectory = $baseDirectory;
+    }
 
     /**
      * Get a translation value.
@@ -77,5 +85,23 @@ abstract class AbstractProcessor implements FileProcessor
         }
 
         return $value;
+    }
+
+    /**
+     * Get the base directory for the literals
+     *
+     * @return string
+     */
+    public function getBaseDirectory()
+    {
+        return $this->baseDirectory;
+    }
+
+    /**
+     * @param string $baseDirectory
+     */
+    public function setBaseDirectory(string $baseDirectory)
+    {
+        $this->baseDirectory = $baseDirectory;
     }
 }
